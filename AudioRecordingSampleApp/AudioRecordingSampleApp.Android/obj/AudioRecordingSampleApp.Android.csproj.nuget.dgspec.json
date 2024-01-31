@@ -1,0 +1,123 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/bxv8hnz/Projects/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp.Android/AudioRecordingSampleApp.Android.csproj": {}
+  },
+  "projects": {
+    "/Users/bxv8hnz/Projects/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp.Android/AudioRecordingSampleApp.Android.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/bxv8hnz/Projects/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp.Android/AudioRecordingSampleApp.Android.csproj",
+        "projectName": "AudioRecordingSampleApp.Android",
+        "projectPath": "/Users/bxv8hnz/Projects/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp.Android/AudioRecordingSampleApp.Android.csproj",
+        "packagesPath": "/Users/bxv8hnz/.nuget/packages/",
+        "outputPath": "/Users/bxv8hnz/Projects/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp.Android/obj/",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "/Users/bxv8hnz/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid13.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid13.0": {
+            "projectReferences": {
+              "/Users/bxv8hnz/Projects/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp.csproj": {
+                "projectPath": "/Users/bxv8hnz/Projects/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid13.0": {
+          "dependencies": {
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2196, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.8.116, )"
+            }
+          }
+        }
+      }
+    },
+    "/Users/bxv8hnz/Projects/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/bxv8hnz/Projects/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp.csproj",
+        "projectName": "AudioRecordingSampleApp",
+        "projectPath": "/Users/bxv8hnz/Projects/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp.csproj",
+        "packagesPath": "/Users/bxv8hnz/.nuget/packages/",
+        "outputPath": "/Users/bxv8hnz/Projects/AudioRecordingSampleApp/AudioRecordingSampleApp/AudioRecordingSampleApp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/bxv8hnz/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2196, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.8.116, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/Users/bxv8hnz/Library/Caches/VisualStudio/17.0/MSBuild/19162_3/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

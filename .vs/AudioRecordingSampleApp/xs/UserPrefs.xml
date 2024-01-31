@@ -1,0 +1,40 @@
+﻿<Properties StartupConfiguration="{F98D6A17-AADC-4DF8-9CDF-1ECB8CDC24E8}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.AudioRecordingSampleApp FirstBuild="True" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.Pixel_3a_API_34_extension_level_7_arm64-v8a" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.AudioRecordingSampleApp.iOS FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.AudioRecordingSampleApp.Android FirstBuild="True" PreferredExecutionTarget="Android.Pixel_3a_API_34_extension_level_7_arm64-v8a" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AudioRecordingSampleApp/AudioRecordingSampleApp.iOS/Info.plist">
+    <Files>
+      <File FileName="AudioRecordingSampleApp/AudioRecordingSampleApp/MainPage.xaml.cs" Line="77" Column="1" />
+      <File FileName="AudioRecordingSampleApp/AudioRecordingSampleApp/MainPage.xaml" Line="18" Column="79" />
+      <File FileName="AudioRecordingSampleApp/AudioRecordingSampleApp/IAudioRecorderService.cs" Line="8" Column="36" />
+      <File FileName="AudioRecordingSampleApp/AudioRecordingSampleApp.Android/AudioRecorderService.cs" Line="57" Column="10" />
+      <File FileName="AudioRecordingSampleApp/AudioRecordingSampleApp.iOS/AudioRecorderService.cs" Line="54" Column="10" />
+      <File FileName="AudioRecordingSampleApp/AudioRecordingSampleApp/Item.cs" Line="11" Column="36" />
+      <File FileName="AudioRecordingSampleApp/AudioRecordingSampleApp/App.xaml.cs" Line="24" Column="1" />
+      <File FileName="AudioRecordingSampleApp/AudioRecordingSampleApp/ItemDatabase.cs" Line="33" Column="14" />
+      <File FileName="AudioRecordingSampleApp/AudioRecordingSampleApp.iOS/Info.plist" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AudioRecordingSampleApp" expanded="True">
+            <Node name="AudioRecordingSampleApp" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="App.xaml" expanded="True" />
+              <Node name="MainPage.xaml" expanded="True" />
+            </Node>
+            <Node name="AudioRecordingSampleApp.Android" expanded="True" selected="True" />
+            <Node name="AudioRecordingSampleApp.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
