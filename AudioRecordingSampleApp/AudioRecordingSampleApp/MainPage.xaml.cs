@@ -1,83 +1,92 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace AudioRecordingSampleApp
 {
     public partial class MainPage : ContentPage
     {
-        private bool isRecording = false;
-        private string audioFilePath;
-        private List<Item> audioRecordings = App.Database.GetItems();
-
-        public List<Item> AudioRecordings
+        ObservableCollection<Recording> _recordings;
+        ObservableCollection<Recording> Recordings
         {
-            get { return audioRecordings; }
+            get { return _recordings; }
             set
             {
-                audioRecordings = value;
+                _recordings = value;
                 OnPropertyChanged();
             }
         }
 
+        public ICommand PlayCommand { get; }
+
         public MainPage()
         {
             InitializeComponent();
+            Recordings = new ObservableCollection<Recording>();
             BindingContext = this;
-            audioRecordings = App.Database.GetItems();
-            recordingsList.ItemsSource = new List<Item>(audioRecordings);
+
+            PlayCommand = new Command<string>(filePath =>
+            {
+                // Handle playback of audio file with the provided file path
+                // Example: DependencyService.Get<IAudioPlayer>().Play(filePath);
+                DisplayAlert("Playback", $"Playing audio: {filePath}", "OK");
+            });
         }
 
-        async void OnRecordAudioButtonClicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            if (!isRecording)
+            base.OnAppearing();
+            LoadRecordings();
+            StartListening();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            StopListening();
+        }
+
+        private void LoadRecordings()
+        {
+            Recordings.Clear();
+            var recordings = new ObservableCollection<Recording>();
+            var audioService = DependencyService.Get<IAudioService>();
+            foreach (var recording in audioService.GetRecordings())
             {
-                isRecording = true;
-                recordButton.Text = "Pause";
+                recordings.Add(recording);
+            }
+            Recordings = new ObservableCollection<Recording>(recordings);
+        }
 
-                var audioFilePath = DependencyService.Get<IAudioRecorderService>().StartRecording();
-
-                // Prompt the user to enter a name for the recorded audio clip
-                string itemName = await DisplayPromptAsync("New Item", "Enter a name for the audio clip", "OK", "Cancel");
-
-                if (itemName != null) // User clicked "OK"
+        private void StartListening()
+        {
+            var audioService = DependencyService.Get<IAudioService>();
+            audioService.StartRecordingOnVoice((filePath) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
                 {
-                    // Create a new Item object with the audio file path and name
-                    var newItem = new Item
-                    {
-                        Name = itemName,
-                        AudioFilePath = audioFilePath
-                    };
-
-                    App.Database.SaveItem(newItem);
-                }
-                audioRecordings = App.Database.GetItems();
-                recordingsList.ItemsSource = new List<Item>(audioRecordings);
-            }
-            else
-            {
-                isRecording = false;
-                recordButton.Text = "Record Audio";
-                DependencyService.Get<IAudioRecorderService>().StopRecording();
-                audioRecordings = App.Database.GetItems();
-                recordingsList.ItemsSource = new List<Item>(audioRecordings);
-            }
+                    LoadRecordings();
+                });
+            });
         }
 
-        private void OnPlayButtonClicked(object sender, EventArgs e)
+        private void StopListening()
         {
-            var button = sender as Button;
-            var item = button?.BindingContext as Item;
+            var audioService = DependencyService.Get<IAudioService>();
+            audioService.StopRecording();
+        }
 
-            if (item != null && !string.IsNullOrEmpty(item.AudioFilePath))
-            {
-                // Use platform-specific APIs to play audio
-                DependencyService.Get<IAudioRecorderService>().Play(item.AudioFilePath);
-            }
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var selectedRecording = e.Item as Recording;
+            var audioService = DependencyService.Get<IAudioService>();
+            audioService.PlayRecording(selectedRecording.FilePath);
         }
     }
 }

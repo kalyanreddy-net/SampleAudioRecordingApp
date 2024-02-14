@@ -3,9 +3,8 @@ namespace AudioRecordingSampleApp
 {
     public interface IAudioRecorderService
     {
-        string StartRecording();
+        void StartRecordingOnVoice();
         void StopRecording();
-        void Play(string filePath);
     }
 }
 

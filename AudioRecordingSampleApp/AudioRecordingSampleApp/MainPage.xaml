@@ -8,22 +8,21 @@
             <Label Text="Welcome to Audio Recording App!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
 
-        <Button x:Name="recordButton" Text="Record Audio" Clicked="OnRecordAudioButtonClicked"/>
+        <!--<Button x:Name="recordButton" Text="Record Audio" Clicked="OnRecordAudioButtonClicked"/>-->
 
-        <ListView x:Name="recordingsList" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ItemsSource="{Binding AudioRecordings}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Button Text="Play" Clicked="OnPlayButtonClicked" />
-                            <Label Text="{Binding Name}" VerticalOptions="Center" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
+         <ListView ItemsSource="{Binding Recordings}" HasUnevenRows="True" ItemTapped="ListView_ItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding FilePath}" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 
-            </ListView.ItemTemplate>
 
-        </ListView>
     </StackLayout>
 
 </ContentPage>
